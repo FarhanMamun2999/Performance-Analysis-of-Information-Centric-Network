@@ -1,0 +1,1941 @@
+file 15901200 1716930413                                        
+version 3
+run Company-Network-0-20240528-23:06:41-15232
+attr configname Company-Network
+attr datetime 20240528-23:06:41
+attr datetimef 20240528-230641
+attr experiment Company-Network
+attr inifile omnetpp-company-network.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network CompanyNetwork
+attr processid 15232
+attr repetition 0
+attr replication #0
+attr resultdir results/
+attr runnumber 0
+attr seedset 0
+config image-path ../../../samples/inet4.5/images
+config **.internet.internetNumWiredTransports 2
+config **.internet.numApps 2
+config **.internet.app[0].typename ContentDownloadApp
+config **.internet.app[0].interContentDownloadInterval "uniform(300.0s, 600.0s)"
+config **.internet.app[0].requestedPrefixNames "\"ccnx://company.de/content/\""
+config **.internet.app[0].dataNamePrefix "\"info\""
+config **.internet.app[0].interestRetransmitTimeout 120s
+config **.internet.app[0].nextFileSuffix "intuniform(0, 10)"
+config **.internet.app[1].typename ContentHostApp
+config **.internet.app[1].hostedPrefixNames "\"ccnx://othercompany.de/info/\""
+config **.internet.app[1].dataNamePrefix "\"brochure\""
+config **.internet.app[1].segmentSize 1000byte
+config **.internet.app[1].numSegmentsPerFile "intuniform(20, 40)"
+config **.internet.app[1].cacheTime 2h
+config **.justin.numApps 1
+config **.justin.app[0].typename ContentDownloadApp
+config **.justin.app[0].interContentDownloadInterval "uniform(1800.0s, 3600.0s)"
+config **.justin.app[0].requestedPrefixNames "\"ccnx://company.de/sales/\""
+config **.justin.app[0].dataNamePrefix "\"report\""
+config **.justin.app[0].interestRetransmitTimeout 120s
+config **.justin.app[0].nextFileSuffix "intuniform(0, 20)"
+config **.primaryRouter.coreRouterNumWiredTransports 5
+config **.primaryRouter.fwd.maximumContentStoreSize 742144byte
+config **.sMainRouter.coreRouterNumWiredTransports 3
+config **.sContent.numApps 2
+config **.sContent.app[0].typename ContentHostApp
+config **.sContent.app[0].hostedPrefixNames "\"ccnx://company.de/content/\""
+config **.sContent.app[0].dataNamePrefix "\"info\""
+config **.sContent.app[0].segmentSize 1000byte
+config **.sContent.app[0].numSegmentsPerFile "intuniform(5, 20)"
+config **.sContent.app[0].cacheTime 2h
+config **.sContent.app[1].typename ContentHostApp
+config **.sContent.app[1].hostedPrefixNames "\"ccnx://company.de/sales/\""
+config **.sContent.app[1].dataNamePrefix "\"report\""
+config **.sContent.app[1].segmentSize 1000byte
+config **.sContent.app[1].numSegmentsPerFile "intuniform(5, 20)"
+config **.sContent.app[1].cacheTime 2h
+config **.sRouter.accessRouterNumWiredTransports 4
+config **.frank.numApps 1
+config **.frank.app[0].typename ContentDownloadApp
+config **.frank.app[0].interContentDownloadInterval "uniform(1800.0s, 3600.0s)"
+config **.frank.app[0].requestedPrefixNames "\"ccnx://othercompany.de/info/\""
+config **.frank.app[0].dataNamePrefix "\"brochure\""
+config **.frank.app[0].interestRetransmitTimeout 120s
+config **.frank.app[0].nextFileSuffix "intuniform(0, 10)"
+config **.thomas.numApps 1
+config **.thomas.app[0].typename ContentDownloadApp
+config **.thomas.app[0].interContentDownloadInterval "uniform(600.0s, 1200.0s)"
+config **.thomas.app[0].requestedPrefixNames "\"ccnx://company.de/warehouse/\""
+config **.thomas.app[0].dataNamePrefix "\"stock\""
+config **.thomas.app[0].interestRetransmitTimeout 120s
+config **.thomas.app[0].nextFileSuffix "intuniform(0, 8)"
+config **.sIoTGW.numApps 1
+config **.sIoTGW.app[0].typename IoTGatewayApp
+config **.sIoTGW.app[0].hostedPrefixName "\"ccnx://company.de/sales/iot/\""
+config **.sIoTGW.app[0].hostedPrefixNameForSensorNet "\"ccnx://company.de/sales/gw/\""
+config **.sIoTGW.app[0].sensorPrefixName "\"ccnx://company.de/sales/sensornet/\""
+config **.sIoTGW.app[0].interestLifetime 3s
+config **.sIoTGW.app[0].maximumSensorReadingsToKeep 100
+config **.sIoTGW.iotGatewayLoRaWirelessRange 100m
+config **.sTemp.numApps 1
+config **.sTemp.app[0].typename SensingApp
+config **.sTemp.app[0].sensorPrefixName "\"ccnx://company.de/sales/sensornet/\""
+config **.sTemp.app[0].gwPrefixName "\"ccnx://company.de/sales/gw/\""
+config **.sTemp.app[0].interestLifetime 3s
+config **.sTemp.app[0].segmentSize 36byte
+config **.sTemp.app[0].numSegmentsPerFile 1
+config **.sTemp.app[0].cacheTime 800s
+config **.sTemp.app[0].sensedDataTypes "\"temperature\""
+config **.sTemp.app[0].temperature "uniform(20.0, 23.0)"
+config **.sTemp.app[0].wakeupInterval 300s
+config **.sHum.numApps 1
+config **.sHum.app[0].typename SensingApp
+config **.sHum.app[0].sensorPrefixName "\"ccnx://company.de/sales/sensornet/\""
+config **.sHum.app[0].gwPrefixName "\"ccnx://company.de/sales/gw/\""
+config **.sHum.app[0].interestLifetime 3s
+config **.sHum.app[0].segmentSize 36byte
+config **.sHum.app[0].numSegmentsPerFile 1
+config **.sHum.app[0].cacheTime 800s
+config **.sHum.app[0].sensedDataTypes "\"humidity\""
+config **.sHum.app[0].humidity "uniform(50.0, 70.0)"
+config **.sHum.app[0].wakeupInterval 300s
+config **.whMainRouter.coreRouterNumWiredTransports 5
+config **.whContent.numApps 1
+config **.whContent.app[0].typename ContentHostApp
+config **.whContent.app[0].hostedPrefixNames "\"ccnx://company.de/warehouse/\""
+config **.whContent.app[0].dataNamePrefix "\"stock\""
+config **.whContent.app[0].segmentSize 1000byte
+config **.whContent.app[0].numSegmentsPerFile "intuniform(5, 10)"
+config **.whContent.app[0].cacheTime 1h
+config **.whRouter.accessRouterNumWiredTransports 2
+config **.james.numApps 1
+config **.james.app[0].typename ContentDownloadApp
+config **.james.app[0].interContentDownloadInterval "uniform(600.0s, 1200.0s)"
+config **.james.app[0].requestedPrefixNames "\"ccnx://company.de/warehouse/\""
+config **.james.app[0].dataNamePrefix "\"stock\""
+config **.james.app[0].interestRetransmitTimeout 120s
+config **.james.app[0].nextFileSuffix "intuniform(0, 30)"
+config **.whIoTGW.numApps 1
+config **.whIoTGW.app[0].typename IoTGatewayApp
+config **.whIoTGW.app[0].hostedPrefixName "\"ccnx://company.de/warehouse/iot/\""
+config **.whIoTGW.app[0].hostedPrefixNameForSensorNet "\"ccnx://company.de/warehouse/gw/\""
+config **.whIoTGW.app[0].sensorPrefixName "\"ccnx://company.de/warehouse/sensornet/\""
+config **.whIoTGW.app[0].interestLifetime 3s
+config **.whIoTGW.app[0].maximumSensorReadingsToKeep 100
+config **.whIoTGW.iotGatewayLoRaWirelessRange 100m
+config **.whTemp.numApps 1
+config **.whTemp.app[0].typename SensingApp
+config **.whTemp.app[0].sensorPrefixName "\"ccnx://company.de/warehouse/sensornet/\""
+config **.whTemp.app[0].gwPrefixName "\"ccnx://company.de/warehouse/gw/\""
+config **.whTemp.app[0].interestLifetime 3s
+config **.whTemp.app[0].segmentSize 36byte
+config **.whTemp.app[0].numSegmentsPerFile 1
+config **.whTemp.app[0].cacheTime 800s
+config **.whTemp.app[0].sensedDataTypes "\"temperature\""
+config **.whTemp.app[0].temperature "uniform(20.0, 23.0)"
+config **.whTemp.app[0].wakeupInterval 300s
+config **.whHum.numApps 1
+config **.whHum.app[0].typename SensingApp
+config **.whHum.app[0].sensorPrefixName "\"ccnx://company.de/warehouse/sensornet/\""
+config **.whHum.app[0].gwPrefixName "\"ccnx://company.de/warehouse/gw/\""
+config **.whHum.app[0].interestLifetime 3s
+config **.whHum.app[0].segmentSize 36byte
+config **.whHum.app[0].numSegmentsPerFile 1
+config **.whHum.app[0].cacheTime 800s
+config **.whHum.app[0].sensedDataTypes "\"humidity\""
+config **.whHum.app[0].humidity "uniform(50.0, 70.0)"
+config **.whHum.app[0].wakeupInterval 300s
+config **.whAP.wlanWirelessRange 60m
+config **.silvia.numApps 1
+config **.silvia.app[0].typename ContentDownloadApp
+config **.silvia.app[0].interContentDownloadInterval "uniform(100.0s, 150.0s)"
+config **.silvia.app[0].requestedPrefixNames "\"ccnx://company.de/warehouse/\""
+config **.silvia.app[0].dataNamePrefix "\"stock\""
+config **.silvia.app[0].interestRetransmitTimeout 120s
+config **.silvia.app[0].nextFileSuffix "intuniform(0, 20)"
+config **.silvia.btWirelessRange 20m
+config **.silvia.wlanWirelessRange 60m
+config **.daniel.numApps 1
+config **.daniel.app[0].typename ContentDownloadApp
+config **.daniel.app[0].interContentDownloadInterval "uniform(300.0s, 600.0s)"
+config **.daniel.app[0].requestedPrefixNames "\"ccnx://company.de/warehouse/\""
+config **.daniel.app[0].dataNamePrefix "\"stock\""
+config **.daniel.app[0].interestRetransmitTimeout 120s
+config **.daniel.app[0].nextFileSuffix "intuniform(20, 80)"
+config **.daniel.btWirelessRange 20m
+config **.daniel.wlanWirelessRange 60m
+config **.uIoTGW.numApps 1
+config **.uIoTGW.app[0].typename IoTGatewayApp
+config **.uIoTGW.app[0].hostedPrefixName "\"ccnx://company.de/utility/iot/\""
+config **.uIoTGW.app[0].hostedPrefixNameForSensorNet "\"ccnx://company.de/utility/gw/\""
+config **.uIoTGW.app[0].sensorPrefixName "\"ccnx://company.de/utility/sensornet/\""
+config **.uIoTGW.app[0].interestLifetime 3s
+config **.uIoTGW.app[0].maximumSensorReadingsToKeep 100
+config **.uIoTGW.iotGatewayLoRaWirelessRange 100m
+config **.uElec.numApps 1
+config **.uElec.app[0].typename SensingApp
+config **.uElec.app[0].sensorPrefixName "\"ccnx://company.de/utility/sensornet/\""
+config **.uElec.app[0].gwPrefixName "\"ccnx://company.de/utility/gw/\""
+config **.uElec.app[0].interestLifetime 3s
+config **.uElec.app[0].segmentSize 36byte
+config **.uElec.app[0].numSegmentsPerFile 1
+config **.uElec.app[0].cacheTime 5400s
+config **.uElec.app[0].sensedDataTypes "\"electricity\""
+config **.uElec.app[0].electricStart "uniform(9000, 10000)"
+config **.uElec.app[0].electricIncrease "uniform(0.004, 0.007)"
+config **.uElec.app[0].wakeupInterval 3600s
+config **.uWater.numApps 1
+config **.uWater.app[0].typename SensingApp
+config **.uWater.app[0].sensorPrefixName "\"ccnx://company.de/utility/sensornet/\""
+config **.uWater.app[0].gwPrefixName "\"ccnx://company.de/utility/gw/\""
+config **.uWater.app[0].interestLifetime 3s
+config **.uWater.app[0].segmentSize 36byte
+config **.uWater.app[0].numSegmentsPerFile 1
+config **.uWater.app[0].cacheTime 5400s
+config **.uWater.app[0].sensedDataTypes "\"water\""
+config **.uWater.app[0].waterStart "uniform(20000, 30000)"
+config **.uWater.app[0].waterIncrease "uniform(0.06, 0.09)"
+config **.uWater.app[0].wakeupInterval 3600s
+config **.mMainRouter.coreRouterNumWiredTransports 3
+config **.mContent.numApps 1
+config **.mContent.app[0].typename ContentHostApp
+config **.mContent.app[0].hostedPrefixNames "\"ccnx://company.de/maintenance/\""
+config **.mContent.app[0].dataNamePrefix "\"manual\""
+config **.mContent.app[0].segmentSize 1000byte
+config **.mContent.app[0].numSegmentsPerFile "intuniform(5, 10)"
+config **.mContent.app[0].cacheTime 24h
+config **.mRouter.accessRouterNumWiredTransports 2
+config **.denis.numApps 4
+config **.denis.app[0].typename ThingsApp
+config **.denis.app[0].sensorDataRetrievalStartTime 7200s
+config **.denis.app[0].interDataDownloadInterval 1000s
+config **.denis.app[0].requestedSensorNetworkPrefixName "\"ccnx://company.de/utility/iot/\""
+config **.denis.app[0].interestLifetime 8s
+config **.denis.app[0].sensorDataNames "\"electricity;water\""
+config **.denis.app[0].nextIndexOfSensorDataToRetrieve "intuniform(0, 1)"
+config **.denis.app[0].maxSensorDataReadingsToKeep 100
+config **.denis.app[0].maxHopsAllowed 10
+config **.denis.app[1].typename ThingsApp
+config **.denis.app[1].sensorDataRetrievalStartTime 3600s
+config **.denis.app[1].interDataDownloadInterval 600s
+config **.denis.app[1].requestedSensorNetworkPrefixName "\"ccnx://company.de/sales/iot/\""
+config **.denis.app[1].interestLifetime 8s
+config **.denis.app[1].sensorDataNames "\"temperature;humidity\""
+config **.denis.app[1].nextIndexOfSensorDataToRetrieve "intuniform(0, 1)"
+config **.denis.app[1].maxSensorDataReadingsToKeep 100
+config **.denis.app[1].maxHopsAllowed 10
+config **.denis.app[2].typename ThingsApp
+config **.denis.app[2].sensorDataRetrievalStartTime 3600s
+config **.denis.app[2].interDataDownloadInterval 600s
+config **.denis.app[2].requestedSensorNetworkPrefixName "\"ccnx://company.de/warehouse/iot/\""
+config **.denis.app[2].interestLifetime 8s
+config **.denis.app[2].sensorDataNames "\"temperature;humidity\""
+config **.denis.app[2].nextIndexOfSensorDataToRetrieve "intuniform(0, 1)"
+config **.denis.app[2].maxSensorDataReadingsToKeep 100
+config **.denis.app[2].maxHopsAllowed 10
+config **.denis.app[3].typename ContentDownloadApp
+config **.denis.app[3].interContentDownloadInterval "uniform(3600.0s, 7200.0s)"
+config **.denis.app[3].requestedPrefixNames "\"ccnx://company.de/maintenance/\""
+config **.denis.app[3].dataNamePrefix "\"manual\""
+config **.denis.app[3].interestRetransmitTimeout 120s
+config **.denis.app[3].nextFileSuffix "intuniform(0, 30)"
+config **.constraintAreaMinX 0m
+config **.constraintAreaMinY 0m
+config **.constraintAreaMinZ 0m
+config **.constraintAreaMaxX 700m
+config **.constraintAreaMaxY 400m
+config **.constraintAreaMaxZ 0m
+config **.updateInterval 1s
+config **.initFromDisplayString true
+config network CompanyNetwork
+config sim-time-limit 48h
+config repeat 1
+config num-rngs 8
+config seed-0-mt 8000
+config seed-1-mt 7000
+config seed-2-mt 6000
+config seed-3-mt 6163382
+config seed-4-mt 4000
+config seed-5-mt 3000
+config seed-6-mt 2000
+config seed-7-mt 1000
+config **.deus.rng-0 1
+config **.numen.rng-0 2
+config **.app[*].rng-0 3
+config **.fwd.rng-0 4
+config **.wired[*].rng-0 5
+config **.wireless[*].rng-0 6
+config **.mobility.rng-0 7
+config result-dir results/
+config output-vector-file results//omnetpp-company-network.ini-Company-Network-0.vec
+config output-scalar-file results//omnetpp-company-network.ini-Company-Network-0.sca
+config **.vector-recording true
+config **.scalar-recording true
+config **.statistic-recording true
+config record-eventlog false
+config eventlog-file results//omnetpp-company-network.ini-Company-Network-0.elog
+
+vector 0 CompanyNetwork.internet fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 1 CompanyNetwork.justin fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 2 CompanyNetwork.primaryRouter fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 3 CompanyNetwork.sRouter fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 4 CompanyNetwork.sMainRouter fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 5 CompanyNetwork.sContent fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 6 CompanyNetwork.sIoTGW fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 7 CompanyNetwork.sTemp fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 8 CompanyNetwork.sHum fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 9 CompanyNetwork.frank fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 10 CompanyNetwork.thomas fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 11 CompanyNetwork.whAP fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 12 CompanyNetwork.whMainRouter fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 13 CompanyNetwork.whContent fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 14 CompanyNetwork.whRouter fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 15 CompanyNetwork.whIoTGW fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 16 CompanyNetwork.whHum fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 17 CompanyNetwork.whTemp fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 18 CompanyNetwork.james fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 19 CompanyNetwork.daniel fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 20 CompanyNetwork.silvia fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 21 CompanyNetwork.uIoTGW fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 22 CompanyNetwork.uElec fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 23 CompanyNetwork.uWater fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 24 CompanyNetwork.mMainRouter fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 25 CompanyNetwork.mRouter fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 26 CompanyNetwork.mContent fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 27 CompanyNetwork.denis fwdFIBEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdFIBEntryCount
+vector 28 CompanyNetwork.silvia appTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesSent
+vector 29 CompanyNetwork.silvia fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 30 CompanyNetwork.silvia fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 31 CompanyNetwork fwdNetworkCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdNetworkCacheHitRatio
+vector 32 CompanyNetwork fwdNetworkCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdNetworkCacheMissRatio
+vector 33 CompanyNetwork.silvia fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 34 CompanyNetwork.silvia fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 35 CompanyNetwork.silvia transportTotalWirelessBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWirelessBytesSent
+vector 36 CompanyNetwork.whAP fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 37 CompanyNetwork.whAP fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 38 CompanyNetwork.whAP fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 39 CompanyNetwork.whAP fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 40 CompanyNetwork.whAP fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 41 CompanyNetwork.whAP transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 42 CompanyNetwork.whMainRouter transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 43 CompanyNetwork.whMainRouter fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 44 CompanyNetwork.whMainRouter fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 45 CompanyNetwork.whMainRouter fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 46 CompanyNetwork.whMainRouter fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 47 CompanyNetwork.whMainRouter fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 48 CompanyNetwork.whMainRouter transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 49 CompanyNetwork.primaryRouter transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 50 CompanyNetwork.primaryRouter fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 51 CompanyNetwork.primaryRouter fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 52 CompanyNetwork.primaryRouter fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 53 CompanyNetwork.primaryRouter fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 54 CompanyNetwork.primaryRouter fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 55 CompanyNetwork.primaryRouter transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 56 CompanyNetwork.internet transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 57 CompanyNetwork.sMainRouter transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 58 CompanyNetwork.uIoTGW transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 59 CompanyNetwork.mMainRouter transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 60 CompanyNetwork.internet fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 61 CompanyNetwork.internet fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 62 CompanyNetwork.internet fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 63 CompanyNetwork.internet fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 64 CompanyNetwork.internet fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 65 CompanyNetwork.sMainRouter fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 66 CompanyNetwork.sMainRouter fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 67 CompanyNetwork.sMainRouter fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 68 CompanyNetwork.sMainRouter fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 69 CompanyNetwork.sMainRouter fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 70 CompanyNetwork.uIoTGW fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 71 CompanyNetwork.uIoTGW fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 72 CompanyNetwork.uIoTGW fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 73 CompanyNetwork.uIoTGW fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 74 CompanyNetwork.uIoTGW fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 75 CompanyNetwork.mMainRouter fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 76 CompanyNetwork.mMainRouter fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 77 CompanyNetwork.mMainRouter fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 78 CompanyNetwork.mMainRouter fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 79 CompanyNetwork.mMainRouter fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 80 CompanyNetwork.internet transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 81 CompanyNetwork.sMainRouter transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 82 CompanyNetwork.uIoTGW transportTotalWirelessBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWirelessBytesSent
+vector 83 CompanyNetwork.mMainRouter transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 84 CompanyNetwork.sContent transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 85 CompanyNetwork.mContent transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 86 CompanyNetwork.sContent fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 87 CompanyNetwork.sContent fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 88 CompanyNetwork.sContent fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 89 CompanyNetwork.sContent fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 90 CompanyNetwork.mContent fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 91 CompanyNetwork.mContent fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 92 CompanyNetwork.mContent fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 93 CompanyNetwork.mContent fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 94 CompanyNetwork.whIoTGW transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 95 CompanyNetwork.whRouter transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 96 CompanyNetwork.whIoTGW fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 97 CompanyNetwork.whIoTGW fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 98 CompanyNetwork.whIoTGW fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 99 CompanyNetwork.whIoTGW fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 100 CompanyNetwork.whIoTGW fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 101 CompanyNetwork.whRouter fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 102 CompanyNetwork.whRouter fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 103 CompanyNetwork.whRouter fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 104 CompanyNetwork.whRouter fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 105 CompanyNetwork.whRouter fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 106 CompanyNetwork.whIoTGW transportTotalWirelessBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWirelessBytesSent
+vector 107 CompanyNetwork.whRouter transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 108 CompanyNetwork.justin transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 109 CompanyNetwork.sRouter transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 110 CompanyNetwork.mRouter transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 111 CompanyNetwork.justin fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 112 CompanyNetwork.justin fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 113 CompanyNetwork.justin fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 114 CompanyNetwork.justin fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 115 CompanyNetwork.sRouter fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 116 CompanyNetwork.sRouter fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 117 CompanyNetwork.sRouter fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 118 CompanyNetwork.sRouter fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 119 CompanyNetwork.sRouter fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 120 CompanyNetwork.mRouter fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 121 CompanyNetwork.mRouter fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 122 CompanyNetwork.mRouter fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 123 CompanyNetwork.mRouter fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 124 CompanyNetwork.mRouter fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 125 CompanyNetwork.sRouter transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 126 CompanyNetwork.mRouter transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 127 CompanyNetwork.james transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 128 CompanyNetwork.james fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 129 CompanyNetwork.james fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 130 CompanyNetwork.james fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 131 CompanyNetwork.james fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 132 CompanyNetwork.frank transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 133 CompanyNetwork.sIoTGW transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 134 CompanyNetwork.thomas transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 135 CompanyNetwork.denis transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 136 CompanyNetwork.frank fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 137 CompanyNetwork.frank fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 138 CompanyNetwork.frank fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 139 CompanyNetwork.frank fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 140 CompanyNetwork.sIoTGW fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 141 CompanyNetwork.sIoTGW fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 142 CompanyNetwork.sIoTGW fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 143 CompanyNetwork.sIoTGW fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 144 CompanyNetwork.sIoTGW fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 145 CompanyNetwork.thomas fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 146 CompanyNetwork.thomas fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 147 CompanyNetwork.thomas fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 148 CompanyNetwork.thomas fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 149 CompanyNetwork.denis fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 150 CompanyNetwork.denis fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 151 CompanyNetwork.denis fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 152 CompanyNetwork.denis fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 153 CompanyNetwork.sIoTGW transportTotalWirelessBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWirelessBytesSent
+vector 154 CompanyNetwork.whContent transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 155 CompanyNetwork.whContent fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 156 CompanyNetwork.whContent fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 157 CompanyNetwork.whContent fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 158 CompanyNetwork.whContent fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 159 CompanyNetwork.whContent appTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesReceived
+vector 160 CompanyNetwork.whContent appTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesSent
+vector 161 CompanyNetwork.whContent appTotalDataBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesSent
+vector 162 CompanyNetwork.whContent fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 163 CompanyNetwork.whContent fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 164 CompanyNetwork.whContent fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 165 CompanyNetwork.whContent transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 166 CompanyNetwork.whMainRouter fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 167 CompanyNetwork.whMainRouter fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 168 CompanyNetwork.whMainRouter fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 169 CompanyNetwork.whMainRouter fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 170 CompanyNetwork.whAP transportTotalWiredBytesReceived:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesReceived
+vector 171 CompanyNetwork.whAP fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 172 CompanyNetwork.whAP fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 173 CompanyNetwork.whAP fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 174 CompanyNetwork.whAP fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 175 CompanyNetwork.whAP transportTotalWirelessBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWirelessBytesSent
+vector 176 CompanyNetwork.daniel fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 177 CompanyNetwork.daniel fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 178 CompanyNetwork.daniel fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 179 CompanyNetwork.silvia fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 180 CompanyNetwork.silvia fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 181 CompanyNetwork.silvia fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 182 CompanyNetwork.silvia appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 183 CompanyNetwork.silvia appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 184 CompanyNetwork.silvia appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 185 CompanyNetwork.uElec fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 186 CompanyNetwork.uElec fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 187 CompanyNetwork.uElec fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 188 CompanyNetwork.uElec fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 189 CompanyNetwork.uWater fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 190 CompanyNetwork.uWater fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 191 CompanyNetwork.uWater fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 192 CompanyNetwork.uWater fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 193 CompanyNetwork.whHum fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 194 CompanyNetwork.whHum fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 195 CompanyNetwork.whHum fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 196 CompanyNetwork.whHum fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 197 CompanyNetwork.whTemp fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 198 CompanyNetwork.whTemp fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 199 CompanyNetwork.whTemp fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 200 CompanyNetwork.whTemp fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 201 CompanyNetwork.sTemp fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 202 CompanyNetwork.sTemp fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 203 CompanyNetwork.sTemp fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 204 CompanyNetwork.sTemp fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 205 CompanyNetwork.sHum fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 206 CompanyNetwork.sHum fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 207 CompanyNetwork.sHum fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 208 CompanyNetwork.sHum fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 209 CompanyNetwork.silvia appContentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appContentDownloadDuration
+vector 210 CompanyNetwork.sTemp fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 211 CompanyNetwork.sHum fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 212 CompanyNetwork.whHum fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 213 CompanyNetwork.whTemp fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 214 CompanyNetwork.sTemp transportTotalWirelessBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWirelessBytesSent
+vector 215 CompanyNetwork.sHum transportTotalWirelessBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWirelessBytesSent
+vector 216 CompanyNetwork.whHum transportTotalWirelessBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWirelessBytesSent
+vector 217 CompanyNetwork.whTemp transportTotalWirelessBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWirelessBytesSent
+vector 218 CompanyNetwork.sIoTGW fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 219 CompanyNetwork.sIoTGW fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 220 CompanyNetwork.sIoTGW fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 221 CompanyNetwork.whIoTGW fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 222 CompanyNetwork.whIoTGW fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 223 CompanyNetwork.whIoTGW fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 224 CompanyNetwork.sTemp appTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesReceived
+vector 225 CompanyNetwork.sTemp appTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesSent
+vector 226 CompanyNetwork.sTemp appTotalDataBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesSent
+vector 227 CompanyNetwork.sHum appTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesReceived
+vector 228 CompanyNetwork.sHum appTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesSent
+vector 229 CompanyNetwork.sHum appTotalDataBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesSent
+vector 230 CompanyNetwork.whHum appTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesReceived
+vector 231 CompanyNetwork.whHum appTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesSent
+vector 232 CompanyNetwork.whHum appTotalDataBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesSent
+vector 233 CompanyNetwork.whTemp appTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesReceived
+vector 234 CompanyNetwork.whTemp appTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesSent
+vector 235 CompanyNetwork.whTemp appTotalDataBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesSent
+vector 236 CompanyNetwork.sTemp fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 237 CompanyNetwork.sTemp fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 238 CompanyNetwork.sTemp fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 239 CompanyNetwork.sHum fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 240 CompanyNetwork.sHum fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 241 CompanyNetwork.sHum fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 242 CompanyNetwork.whHum fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 243 CompanyNetwork.whHum fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 244 CompanyNetwork.whHum fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 245 CompanyNetwork.whTemp fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 246 CompanyNetwork.whTemp fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 247 CompanyNetwork.whTemp fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 248 CompanyNetwork.sTemp fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 249 CompanyNetwork.sHum fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 250 CompanyNetwork.whHum fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 251 CompanyNetwork.whTemp fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 252 CompanyNetwork.sTemp appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 253 CompanyNetwork.sTemp appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 254 CompanyNetwork.sTemp appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 255 CompanyNetwork.sHum appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 256 CompanyNetwork.sHum appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 257 CompanyNetwork.sHum appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 258 CompanyNetwork.whHum appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 259 CompanyNetwork.whHum appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 260 CompanyNetwork.whHum appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 261 CompanyNetwork.whTemp appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 262 CompanyNetwork.whTemp appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 263 CompanyNetwork.whTemp appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 264 CompanyNetwork.sIoTGW fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 265 CompanyNetwork.whIoTGW fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 266 CompanyNetwork.daniel appTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesSent
+vector 267 CompanyNetwork.daniel fwdCacheHitRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheHitRatio
+vector 268 CompanyNetwork.daniel fwdCacheMissRatio:vector ETV
+attr recordingmode vector
+attr source fwdCacheMissRatio
+vector 269 CompanyNetwork.daniel fwdPITEntryCount:vector ETV
+attr recordingmode vector
+attr source fwdPITEntryCount
+vector 270 CompanyNetwork.daniel fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 271 CompanyNetwork.daniel transportTotalWirelessBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWirelessBytesSent
+vector 272 CompanyNetwork.daniel appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 273 CompanyNetwork.daniel appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 274 CompanyNetwork.daniel appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 275 CompanyNetwork.daniel appContentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appContentDownloadDuration
+vector 276 CompanyNetwork.internet appTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesSent
+vector 277 CompanyNetwork.sContent appTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesReceived
+vector 278 CompanyNetwork.sContent appTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesSent
+vector 279 CompanyNetwork.sContent appTotalDataBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesSent
+vector 280 CompanyNetwork.sContent fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 281 CompanyNetwork.sContent fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 282 CompanyNetwork.sContent fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 283 CompanyNetwork.sContent transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 284 CompanyNetwork.sMainRouter fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 285 CompanyNetwork.sMainRouter fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 286 CompanyNetwork.sMainRouter fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 287 CompanyNetwork.sMainRouter fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 288 CompanyNetwork.primaryRouter fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 289 CompanyNetwork.primaryRouter fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 290 CompanyNetwork.primaryRouter fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 291 CompanyNetwork.primaryRouter fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 292 CompanyNetwork.internet fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 293 CompanyNetwork.internet fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 294 CompanyNetwork.internet fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 295 CompanyNetwork.internet appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 296 CompanyNetwork.internet appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 297 CompanyNetwork.internet appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 298 CompanyNetwork.daniel fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 299 CompanyNetwork.silvia fwdTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesReceived
+vector 300 CompanyNetwork.internet appContentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appContentDownloadDuration
+vector 301 CompanyNetwork.thomas appTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesSent
+vector 302 CompanyNetwork.thomas fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 303 CompanyNetwork.thomas transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 304 CompanyNetwork.sRouter fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 305 CompanyNetwork.sRouter fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 306 CompanyNetwork.sRouter fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 307 CompanyNetwork.sRouter fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 308 CompanyNetwork.thomas fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 309 CompanyNetwork.thomas fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 310 CompanyNetwork.thomas fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 311 CompanyNetwork.thomas appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 312 CompanyNetwork.thomas appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 313 CompanyNetwork.thomas appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 314 CompanyNetwork.thomas appContentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appContentDownloadDuration
+vector 315 CompanyNetwork.james appTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesSent
+vector 316 CompanyNetwork.james fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 317 CompanyNetwork.james transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 318 CompanyNetwork.whRouter fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 319 CompanyNetwork.whRouter fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 320 CompanyNetwork.whRouter fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 321 CompanyNetwork.whRouter fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 322 CompanyNetwork.james fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 323 CompanyNetwork.james fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 324 CompanyNetwork.james fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 325 CompanyNetwork.james appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 326 CompanyNetwork.james appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 327 CompanyNetwork.james appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 328 CompanyNetwork.james appContentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appContentDownloadDuration
+vector 329 CompanyNetwork.silvia appRetransmissionInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source appRetransmissionInterestsBytesSent
+vector 330 CompanyNetwork appNetworkInterestRetransmissionCount:vector ETV
+attr recordingmode vector
+attr source appNetworkInterestRetransmissionCount
+vector 331 CompanyNetwork.thomas appRetransmissionInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source appRetransmissionInterestsBytesSent
+vector 332 CompanyNetwork.justin appTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesSent
+vector 333 CompanyNetwork.justin fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 334 CompanyNetwork.justin transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 335 CompanyNetwork.internet fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 336 CompanyNetwork.justin fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 337 CompanyNetwork.justin fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 338 CompanyNetwork.justin fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 339 CompanyNetwork.justin appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 340 CompanyNetwork.justin appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 341 CompanyNetwork.justin appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 342 CompanyNetwork.justin appContentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appContentDownloadDuration
+vector 343 CompanyNetwork.james appRetransmissionInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source appRetransmissionInterestsBytesSent
+vector 344 CompanyNetwork.frank appTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesSent
+vector 345 CompanyNetwork.frank fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 346 CompanyNetwork.frank transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 347 CompanyNetwork.internet appTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesReceived
+vector 348 CompanyNetwork.internet appTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesSent
+vector 349 CompanyNetwork.internet appTotalDataBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesSent
+vector 350 CompanyNetwork.frank fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 351 CompanyNetwork.frank fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 352 CompanyNetwork.frank fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 353 CompanyNetwork.frank appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 354 CompanyNetwork.frank appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 355 CompanyNetwork.frank appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 356 CompanyNetwork.frank appContentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appContentDownloadDuration
+vector 357 CompanyNetwork.denis appTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesSent
+vector 358 CompanyNetwork.uElec fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 359 CompanyNetwork.uWater fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 360 CompanyNetwork.denis fwdTotalInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalInterestsBytesSent
+vector 361 CompanyNetwork.uElec transportTotalWirelessBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWirelessBytesSent
+vector 362 CompanyNetwork.uWater transportTotalWirelessBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWirelessBytesSent
+vector 363 CompanyNetwork.denis transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 364 CompanyNetwork.sIoTGW transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 365 CompanyNetwork.whIoTGW transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 366 CompanyNetwork.mMainRouter fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 367 CompanyNetwork.mMainRouter fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 368 CompanyNetwork.mMainRouter fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 369 CompanyNetwork.mMainRouter fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 370 CompanyNetwork.mRouter fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 371 CompanyNetwork.mRouter fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 372 CompanyNetwork.mRouter fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 373 CompanyNetwork.mRouter fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 374 CompanyNetwork.denis fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 375 CompanyNetwork.denis fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 376 CompanyNetwork.denis fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 377 CompanyNetwork.denis appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 378 CompanyNetwork.denis appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 379 CompanyNetwork.uIoTGW fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 380 CompanyNetwork.uIoTGW fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 381 CompanyNetwork.uIoTGW fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 382 CompanyNetwork.uElec appTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesReceived
+vector 383 CompanyNetwork.uElec appTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesSent
+vector 384 CompanyNetwork.uElec appTotalDataBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesSent
+vector 385 CompanyNetwork.uWater appTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesReceived
+vector 386 CompanyNetwork.uWater appTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesSent
+vector 387 CompanyNetwork.uWater appTotalDataBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesSent
+vector 388 CompanyNetwork.uElec fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 389 CompanyNetwork.uElec fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 390 CompanyNetwork.uElec fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 391 CompanyNetwork.uWater fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 392 CompanyNetwork.uWater fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 393 CompanyNetwork.uWater fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 394 CompanyNetwork.uElec fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 395 CompanyNetwork.uWater fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 396 CompanyNetwork.uElec appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 397 CompanyNetwork.uElec appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 398 CompanyNetwork.uElec appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 399 CompanyNetwork.uWater appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 400 CompanyNetwork.uWater appTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesReceived
+vector 401 CompanyNetwork.uWater appTotalDataBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesReceived
+vector 402 CompanyNetwork.uIoTGW fwdTotalContentObjsBytesReceived:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesReceived
+vector 403 CompanyNetwork.mContent appTotalInterestsBytesReceived:vector ETV
+attr recordingmode vector
+attr source appTotalInterestsBytesReceived
+vector 404 CompanyNetwork.mContent appTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalContentObjsBytesSent
+vector 405 CompanyNetwork.mContent appTotalDataBytesSent:vector ETV
+attr recordingmode vector
+attr source appTotalDataBytesSent
+vector 406 CompanyNetwork.mContent fwdCacheAdditionsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheAdditionsBytes
+vector 407 CompanyNetwork.mContent fwdCacheSizeBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheSizeBytes
+vector 408 CompanyNetwork.mContent fwdTotalContentObjsBytesSent:vector ETV
+attr recordingmode vector
+attr source fwdTotalContentObjsBytesSent
+vector 409 CompanyNetwork.mContent transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 410 CompanyNetwork.denis appSegmentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appSegmentDownloadDuration
+vector 411 CompanyNetwork.denis appContentDownloadDuration:vector ETV
+attr recordingmode vector
+attr source appContentDownloadDuration
+vector 412 CompanyNetwork.uIoTGW transportTotalWiredBytesSent:vector ETV
+attr recordingmode vector
+attr source transportTotalWiredBytesSent
+vector 413 CompanyNetwork.daniel appRetransmissionInterestsBytesSent:vector ETV
+attr recordingmode vector
+attr source appRetransmissionInterestsBytesSent
+31	70077 1485170 448 263554 146.118973277044 70029.525592223064 32768 0 0.1215042503388 1499.5283767907 110.37557140384
+32	1555247 1454066 448 263554 146.118973277044 70029.525592223064 32768 0.8784957496612 1 31268.471623209 29879.318817822
+vector 414 CompanyNetwork.primaryRouter fwdCacheRemovalsBytes:vector ETV
+attr recordingmode vector
+attr source fwdCacheRemovalsBytes
+0	3009449 30 79 81 0 0 3 1 2 5 9
+1	3009479 10 83 83 0 0 1 1 1 1 1
+2	3009489 50 84 88 0 0 5 1 1 5 5
+3	3009539 40 89 92 0 0 4 1 1 4 4
+4	3009579 30 93 95 0 0 3 1 1 3 3
+5	3009609 30 96 98 0 0 3 1 3 6 14
+6	3009639 96 99 2894 0 300.052363636364 6 1 5 18 64
+7	3009735 22 102 103 0 0 2 1 2 3 5
+8	3009757 22 104 105 0 0 2 1 2 3 5
+9	3009779 11 107 107 0 0 1 1 1 1 1
+10	3009790 12 109 109 0 0 1 1 1 1 1
+11	3009802 24 110 111 0 0 2 1 1 2 2
+12	3009826 60 112 116 0 0 5 1 1 5 5
+13	3009886 24 117 118 0 0 2 1 2 3 5
+14	3009910 24 119 120 0 0 2 1 1 2 2
+15	3009934 104 121 2900 0 300.052363636364 6 1 5 18 64
+16	3010038 24 124 125 0 0 2 1 2 3 5
+17	3010062 24 126 127 0 0 2 1 2 3 5
+18	3010086 12 129 129 0 0 1 1 1 1 1
+19	3010098 12 131 131 0 0 1 1 1 1 1
+20	3010110 12 133 133 0 0 1 1 1 1 1
+21	3010122 108 134 39333 0 3600.052363636364 6 1 5 18 64
+22	3010230 24 137 138 0 0 2 1 2 3 5
+23	3010254 24 139 140 0 0 2 1 2 3 5
+24	3010278 36 141 143 0 0 3 1 1 3 3
+25	3010314 24 144 145 0 0 2 1 1 2 2
+26	3010338 24 146 147 0 0 2 1 2 3 5
+27	3010362 12 152 152 0 0 1 1 1 1 1
+28	3010374 50222 447 513086 146.118973277044 172793.478573074522 1518 16 16 24288 388608
+29	3060596 114707 448 513087 146.118973277044 172793.478573074522 2447 0 0.18 85.594574251806 5.9074096830581
+30	3175303 112576 448 513087 146.118973277044 172793.478573074522 2447 0.82 1 2361.4054257482 2281.7182611794
+31	3287879 708931 263555 513117 70029.525592223064 172800 15439 0.11875965377554 0.22040367581472 2594.2869993686 450.4635841158
+32	3996810 708931 263555 513117 70029.525592223064 172800 15439 0.77959632418528 0.88124034622446 12844.713000631 10700.889585379
+33	4705741 34408 448 498370 146.118973277044 166236.427709866237 1055 0 929 434390 267779220
+34	4740149 1844 448 17758 146.118973277044 1280.628442988401 63 16 16 1008 16128
+35	4741993 1844 449 17759 146.118973277044 1280.628442988401 63 48 48 3024 145152
+36	4743837 36990 451 498323 146.119357277044 166236.427325866237 1161 16 16 18576 297216
+37	4780827 35829 451 498323 146.119357277044 166236.427325866237 1161 0 0 0 0
+38	4816656 35829 451 498323 146.119357277044 166236.427325866237 1161 1 1 1161 1161
+39	4852485 45028 451 498323 146.119357277044 166236.427325866237 1393 0 929 490391 279359261
+40	4897513 36990 451 498323 146.119357277044 166236.427325866237 1161 16 16 18576 297216
+41	4934503 7041 452 80156 146.119357277044 10230.8602551415 232 48 48 11136 534528
+42	4941544 45613 453 498291 146.119361117044 166236.427322026237 1428 48 1048 333616 293739616
+43	4987157 36990 455 498297 146.119361117044 166236.427322026237 1161 16 16 18576 297216
+44	5024147 35829 455 498297 146.119361117044 166236.427322026237 1161 0 0 0 0
+45	5059976 35829 455 498297 146.119361117044 166236.427322026237 1161 1 1 1161 1161
+46	5095805 45977 455 498297 146.119361117044 166236.427322026237 1426 0 896 452385 248644529
+47	5141782 147960 455 498297 146.119361117044 166236.427322026237 4644 16 16 74304 1188864
+48	5289742 156523 456 498381 146.119361117044 166236.428921002237 4909 48 1048 498704 299567840
+49	5446265 63257 460 498274 146.119361501044 166236.427321642237 1931 48 1048 858832 844004032
+50	5509522 36990 462 498278 146.119361501044 166236.427321642237 1161 16 16 18576 297216
+51	5546512 35829 462 498278 146.119361501044 166236.427321642237 1161 0 0 0 0
+52	5582341 35829 462 498278 146.119361501044 166236.427321642237 1161 1 1 1161 1161
+53	5618170 63446 462 498278 146.119361501044 166236.427321642237 1931 1 391 460340 126418890
+54	5681616 147960 462 498278 146.119361501044 166236.427321642237 4644 16 16 74304 1188864
+55	5829576 174227 463 498283 146.119361501044 166236.427321642237 5414 48 1048 1026016 852028864
+56	6003803 46689 467 498287 146.119361885044 166236.427322026237 1432 48 1048 490736 465811328
+57	6050492 63209 469 498289 146.119361885044 166236.427322026237 1929 48 1048 858664 843989920
+58	6113701 36991 471 498293 146.119361885044 166236.427322026237 1161 48 48 55728 2674944
+59	6150692 42064 473 498344 146.119361885044 166236.427330026237 1307 48 1048 204880 158662336
+60	6192756 32352 475 498295 146.119361885044 166236.427322026237 1010 16 16 16160 258560
+61	6225108 292295 475 513072 146.119361885044 172787.464684084486 6293 0 0.81550929604322 3806.9031647281 2594.1554867753
+62	6517403 292146 475 513072 146.119361885044 172787.464684084486 6293 0.18449070395678 1 2486.0968352719 1273.3491573191
+63	6809549 62934 475 498295 146.119361885044 166236.427322026237 1913 1 409 488357 142345657
+64	6872483 30908 475 498295 146.119361885044 166236.427322026237 982 16 16 15712 251392
+65	6903391 36991 476 498296 146.119361885044 166236.427322026237 1161 16 16 18576 297216
+66	6940382 35830 476 498296 146.119361885044 166236.427322026237 1161 0 0 0 0
+67	6976212 35830 476 498296 146.119361885044 166236.427322026237 1161 1 1 1161 1161
+68	7012042 63338 476 498296 146.119361885044 166236.427322026237 1927 1 395 465072 129447468
+69	7075380 73982 476 498296 146.119361885044 166236.427322026237 2322 16 16 37152 594432
+70	7149362 37053 477 498298 146.119361885044 166236.427322026237 1163 16 16 18608 297728
+71	7186415 35950 477 498298 146.119361885044 166236.427322026237 1165 0 0 0 0
+72	7222365 35950 477 498298 146.119361885044 166236.427322026237 1165 1 1 1165 1165
+73	7258315 38519 477 498298 146.119361885044 166236.427322026237 1171 1 1159 676296 521101330
+74	7296834 36996 477 498298 146.119361885044 166236.427322026237 1161 16 16 18576 297216
+75	7333830 36985 478 498271 146.119361885044 166236.427321258237 1161 16 16 18576 297216
+76	7370815 35824 478 498271 146.119361885044 166236.427321258237 1161 0 0 0 0
+77	7406639 35824 478 498271 146.119361885044 166236.427321258237 1161 1 1 1161 1161
+78	7442463 43013 478 498346 146.119361885044 166236.427330026237 1307 1 1016 753782 553636982
+79	7485476 73970 478 498271 146.119361885044 166236.427321258237 2322 16 16 37152 594432
+80	7559446 51687 479 498299 146.119361885044 166236.427322026237 1583 48 1048 676984 662343232
+81	7611133 100144 480 498301 146.119361885044 166236.427322026237 3088 48 1048 914224 846650752
+82	7711277 37058 482 498306 146.119361885044 166236.427322026237 1163 36 44 41884 1508528
+83	7748335 79049 483 498347 146.119361885044 166236.427330026237 2468 48 1048 260608 161337280
+84	7827384 36991 485 498307 146.119362269044 166236.427322410237 1161 48 48 55728 2674944
+85	7864375 36991 487 498276 146.119362269044 166236.427321642237 1161 48 48 55728 2674944
+86	7901366 36991 489 498309 146.119362269044 166236.427322410237 1161 16 16 18576 297216
+87	7938357 35830 489 498309 146.119362269044 166236.427322410237 1161 0 0 0 0
+88	7974187 35830 489 498309 146.119362269044 166236.427322410237 1161 1 1 1161 1161
+89	8010017 51940 489 498309 146.119362269044 166236.427322410237 1585 1 737 612927 316136521
+90	8061957 36991 490 498279 146.119362269044 166236.427321642237 1161 16 16 18576 297216
+91	8098948 35830 490 498279 146.119362269044 166236.427321642237 1161 0 0 0 0
+92	8134778 35830 490 498279 146.119362269044 166236.427321642237 1161 1 1 1161 1161
+93	8170608 42872 490 498285 146.119362269044 166236.427321642237 1301 1 1022 757387 561143911
+94	8213480 36991 491 498314 146.119364957044 166236.427325866237 1161 48 48 55728 2674944
+95	8250471 37609 493 498318 146.119364957044 166236.427325866237 1180 48 1048 75640 23542720
+96	8288080 37049 495 498322 146.119364957044 166236.427325866237 1163 16 16 18608 297728
+97	8325129 35942 495 498322 146.119364957044 166236.427325866237 1165 0 0 0 0
+98	8361071 35942 495 498322 146.119364957044 166236.427325866237 1165 1 1 1165 1165
+99	8397013 38494 495 498322 146.119364957044 166236.427325866237 1171 1 1159 673542 519966106
+100	8435507 38154 495 498322 146.119364957044 166236.427325866237 1161 16 16 18576 297216
+101	8473661 38152 496 498324 146.119364957044 166236.427325866237 1161 16 16 18576 297216
+102	8511813 36991 496 498324 146.119364957044 166236.427325866237 1161 0 0 0 0
+103	8548804 36991 496 498324 146.119364957044 166236.427325866237 1161 1 1 1161 1161
+104	8585795 39948 496 498324 146.119364957044 166236.427325866237 1180 1 1142 657286 497696530
+105	8625743 38152 496 498324 146.119364957044 166236.427325866237 1161 16 16 18576 297216
+106	8663895 38214 497 498328 146.119364957044 166236.427325866237 1163 36 44 41884 1508528
+107	8702109 38789 498 498330 146.119364957044 166236.427325866237 1180 48 1048 75640 23542720
+108	8740898 27642 499 498310 146.119365725044 166236.427325866237 831 48 1048 310888 298930624
+109	8768540 50316 501 498312 146.119365725044 166236.427325866237 1505 48 1048 414312 378309024
+110	8818856 43371 503 498355 146.119365725044 166236.427413866237 1307 48 1048 204880 158662336
+111	8862227 17975 505 498320 146.119365725044 166236.427325866237 560 16 16 8960 143360
+112	8880202 62330 505 510041 146.119365725044 171407.973301619461 1463 0 0.43198906356801 245.96966647068 75.369103859287
+113	8942532 62173 505 510041 146.119365725044 171407.973301619461 1463 0.56801093643199 1 1217.0303335293 1046.4297709179
+114	9004705 37221 505 498320 146.119365725044 166236.427325866237 1102 1 560 398899 171532751
+115	9041926 38153 506 498321 146.119365725044 166236.427325866237 1161 16 16 18576 297216
+116	9080079 36992 506 498321 146.119365725044 166236.427325866237 1161 0 0 0 0
+117	9117071 36992 506 498321 146.119365725044 166236.427325866237 1161 1 1 1161 1161
+118	9154063 51016 506 498321 146.119365725044 166236.427325866237 1505 1 817 669919 358078525
+119	9205079 114459 506 498321 146.119365725044 166236.427325866237 3483 16 16 55728 891648
+120	9319538 38147 507 498267 146.119365725044 166236.427317418237 1161 16 16 18576 297216
+121	9357685 36986 507 498267 146.119365725044 166236.427317418237 1161 0 0 0 0
+122	9394671 36986 507 498267 146.119365725044 166236.427317418237 1161 1 1 1161 1161
+123	9431657 44321 507 498357 146.119365725044 166236.427413866237 1307 1 1016 753782 553636982
+124	9475978 38147 507 498267 146.119365725044 166236.427317418237 1161 16 16 18576 297216
+125	9514125 126623 508 498327 146.119365725044 166236.427325866237 3827 48 1048 525768 383658912
+126	9640748 43372 511 498358 146.119365725044 166236.427413866237 1307 48 1048 204880 158662336
+127	9684120 38191 512 498337 146.119368797044 166236.427329706237 1161 48 1048 74728 23498944
+128	9722311 37554 514 498342 146.119368797044 166236.427329706237 1142 16 16 18272 292352
+129	9759865 84170 514 513012 146.119368797044 172771.794907314613 2577 0 0 0 0
+130	9844035 84170 514 513012 146.119368797044 172771.794907314613 2577 1 1 2577 2577
+131	9928205 39949 514 498342 146.119368797044 166236.427329706237 1180 1 1142 657286 497696530
+132	9968154 38813 515 498331 146.119369565044 166236.427329706237 1161 48 1048 385728 364354944
+133	10006967 38153 517 498333 146.119369565044 166236.427329706237 1161 48 48 55728 2674944
+134	10045120 38177 519 498335 146.119369565044 166236.427329706237 1161 48 1048 67728 15826944
+135	10083297 38437 521 498359 146.119369565044 166236.427497706237 1161 48 1048 197872 158325952
+136	10121734 27101 523 498339 146.119369565044 166236.427329706237 831 16 16 13296 212736
+137	10148835 126860 523 508510 146.119369565044 170719.3677732404 2782 0 0.58267433501078 805.37786975016 341.33545280713
+138	10275695 126435 523 508510 146.119369565044 170719.3677732404 2782 0.41732566498922 1 1976.6221302498 1512.5797133068
+139	10402130 50588 523 498339 146.119369565044 166236.427329706237 1491 1 831 687296 376451290
+140	10452718 38213 524 498340 146.119369565044 166236.427329706237 1163 16 16 18608 297728
+141	10490931 37108 524 498340 146.119369565044 166236.427329706237 1165 0 0 0 0
+142	10528039 37108 524 498340 146.119369565044 166236.427329706237 1165 1 1 1165 1165
+143	10565147 39666 524 498340 146.119369565044 166236.427329706237 1171 1 1159 673612 520010706
+144	10604813 38155 524 498340 146.119369565044 166236.427329706237 1161 16 16 18576 297216
+145	10642968 37783 525 498341 146.119369565044 166236.427329706237 1149 16 16 18384 294144
+146	10680751 84356 525 512990 146.119369565044 172761.866616640044 2583 0 0 0 0
+147	10765107 84356 525 512990 146.119369565044 172761.866616640044 2583 1 1 2583 2583
+148	10849463 39724 525 498341 146.119369565044 166236.427329706237 1173 1 1149 662897 506537587
+149	10889187 33212 526 459142 146.119369565044 149119.626982583601 1015 16 16 16240 259840
+150	10922399 79731 526 513113 146.119369565044 172800 1971 0 0.41095890410959 333.19882429418 91.470280895756
+151	11002130 79218 526 513113 146.119369565044 172800 1971 0.58904109589041 1 1637.8011757058 1396.0726323074
+152	11081348 44267 526 498361 146.119369565044 166236.427497706237 1307 1 1016 753782 553636982
+153	11125615 38215 527 498343 146.119369565044 166236.427329706237 1163 36 44 41884 1508528
+154	11163830 38153 528 498383 146.119745117044 166236.429305002237 1161 48 48 55728 2674944
+155	11201983 38153 530 498385 146.119745117044 166236.429305002237 1161 16 16 18576 297216
+156	11240136 36992 530 498385 146.119745117044 166236.429305002237 1161 0 0 0 0
+157	11277128 36992 530 498385 146.119745117044 166236.429305002237 1161 1 1 1161 1161
+158	11314120 47405 530 498385 146.119745117044 166236.429305002237 1426 0 896 452385 248644529
+159	11361525 8302 531 80235 146.119745117044 10230.8606429815 265 16 16 4240 67840
+160	11369827 8832 531 80235 146.119745117044 10230.8606429815 265 1016 1016 269240 273547840
+161	11378659 8832 531 80235 146.119745117044 10230.8606429815 265 1000 1000 265000 265000000
+162	11387491 8832 532 80236 146.119745117044 10230.8606429815 265 1000 1000 265000 265000000
+163	11396323 9254 532 80236 146.119745117044 10230.8606429815 265 1000 265000 35245000 6238365000000
+164	11405577 8832 532 80236 146.119745117044 10230.8606429815 265 1016 1016 269240 273547840
+165	11414409 8832 533 80237 146.119745117044 10230.8606429815 265 1048 1048 277720 291050560
+166	11423241 8890 536 80240 146.128129117044 10230.8690269815 267 52 1016 269344 273553248
+167	11432131 8828 536 80240 146.128129117044 10230.8690269815 265 36 1000 263072 263002592
+168	11440959 9254 536 80240 146.128129117044 10230.8690269815 265 1000 263072 35042560 6152527640544
+169	11450213 8828 536 80240 146.128129117044 10230.8690269815 265 52 1016 267312 271488736
+170	11459041 38617 538 498316 146.128212957044 166236.427325866237 1161 48 1048 287728 256946944
+171	11497658 7739 540 80244 146.128212957044 10230.8691108215 232 1016 1016 235712 239483392
+172	11505397 7739 540 80244 146.128212957044 10230.8691108215 232 1000 1000 232000 232000000
+173	11513136 8095 540 80244 146.128212957044 10230.8691108215 232 1000 232000 27028000 4189340000000
+174	11521231 7739 540 80244 146.128212957044 10230.8691108215 232 1016 1016 235712 239483392
+175	11528970 38617 541 498329 146.128212957044 166236.427325866237 1161 48 1048 287728 256946944
+176	11567587 7739 544 80260 146.136596957044 10230.8774948215 232 1016 1016 235712 239483392
+177	11575326 7739 544 80260 146.136596957044 10230.8774948215 232 1000 1000 232000 232000000
+178	11583065 8095 544 80260 146.136596957044 10230.8774948215 232 1000 232000 27028000 4189340000000
+179	11591160 7739 545 80261 146.136596957044 10230.8774948215 232 1016 1016 235712 239483392
+180	11598899 7739 545 80261 146.136596957044 10230.8774948215 232 1000 1000 232000 232000000
+181	11606638 8095 545 80261 146.136596957044 10230.8774948215 232 1000 232000 27028000 4189340000000
+182	11614733 3241 546 19879 146.136596957044 1408.614851334556 90 0 0.01762368 1.11029184 0.019567428094771
+183	11617974 2944 546 19879 146.136596957044 1408.614851334556 90 1016 1016 91440 92903040
+184	11620918 2944 546 19879 146.136596957044 1408.614851334556 90 1000 1000 90000 90000000
+185	11623862 38160 742 498484 146.171725521408 166236.479685662601 1161 16 16 18576 297216
+186	11662022 51017 742 513110 146.171725521408 172800 1209 0 0.038875103391232 10.506961117359 0.20979937081421
+187	11713039 49879 742 513110 146.171725521408 172800 1209 0.96112489660877 1 1198.4930388826 1188.1958771361
+188	11762918 39460 742 498484 146.171725521408 166236.479685662601 1164 1 1160 674512 521292018
+189	11802378 38160 743 498485 146.171725521408 166236.479685662601 1161 16 16 18576 297216
+190	11840538 51017 743 513111 146.171725521408 172800 1209 0 0.038875103391232 10.506961117359 0.20979937081421
+191	11891555 49879 743 513111 146.171725521408 172800 1209 0.96112489660877 1 1198.4930388826 1188.1958771361
+192	11941434 39460 743 498485 146.171725521408 166236.479685662601 1164 1 1160 674512 521292018
+193	11980894 38157 746 498488 146.171728593408 166236.479689502601 1161 16 16 18576 297216
+194	12019051 73948 746 513116 146.171728593408 172800 1737 0 0.33103051237766 239.48739646799 48.750262560342
+195	12092999 73273 746 513116 146.171728593408 172800 1737 0.66896948762234 1 1497.512603532 1306.7754696244
+196	12166272 39447 746 498488 146.171728593408 166236.479689502601 1164 1 1160 673464 520973426
+197	12205719 38157 747 498489 146.171728593408 166236.479689502601 1161 16 16 18576 297216
+198	12243876 73948 747 513117 146.171728593408 172800 1737 0 0.33103051237766 239.48739646799 48.750262560342
+199	12317824 73273 747 513117 146.171728593408 172800 1737 0.66896948762234 1 1497.512603532 1306.7754696244
+200	12391097 39447 747 498489 146.171728593408 166236.479689502601 1164 1 1160 673464 520973426
+201	12430544 38157 750 498492 146.171733201408 166236.479693342601 1161 16 16 18576 297216
+202	12468701 73936 750 513114 146.171733201408 172800 1737 0 0.33103051237766 239.4755943403 48.749221952169
+203	12542637 73261 750 513114 146.171733201408 172800 1737 0.66896948762234 1 1497.5244056597 1306.7980332716
+204	12615898 39447 750 498492 146.171733201408 166236.479693342601 1164 1 1160 673464 520973426
+205	12655345 38157 751 498493 146.171733201408 166236.479693342601 1161 16 16 18576 297216
+206	12693502 73936 751 513115 146.171733201408 172800 1737 0 0.33103051237766 239.4755943403 48.749221952169
+207	12767438 73261 751 513115 146.171733201408 172800 1737 0.66896948762234 1 1497.5244056597 1306.7980332716
+208	12840699 39447 751 498493 146.171733201408 166236.479693342601 1164 1 1160 673464 520973426
+209	12880146 397 1422 19879 146.277586397044 1408.614851334556 11 0 0.1762368 1.11029184 0.16244071259628
+210	12880543 17 2870 2870 300 300 1 16 16 16 256
+211	12880560 17 2871 2871 300 300 1 16 16 16 256
+212	12880577 17 2872 2872 300 300 1 16 16 16 256
+213	12880594 17 2873 2873 300 300 1 16 16 16 256
+214	12880611 47 2874 2934 300 300.104727272728 2 36 72 108 6480
+215	12880658 47 2875 2935 300 300.104727272728 2 36 72 108 6480
+216	12880705 47 2876 2936 300 300.104727272728 2 36 72 108 6480
+217	12880752 47 2877 2937 300 300.104727272728 2 36 72 108 6480
+218	12880799 176 2890 49567 300.052363636364 5400.000016128 6 8 36 160 5312
+219	12880975 179 2890 49567 300.052363636364 5400.000016128 6 8 160 448 51744
+220	12881154 118 2890 49567 300.052363636364 5400.000016128 4 24 52 152 6560
+221	12881272 176 2896 42866 300.052363636364 4200.000012288 6 8 36 160 5312
+222	12881448 179 2896 42866 300.052363636364 4200.000012288 6 8 160 448 51744
+223	12881627 118 2896 42866 300.052363636364 4200.000012288 4 24 52 152 6560
+224	12881745 30 2926 2926 300.104727272728 300.104727272728 1 16 16 16 256
+225	12881775 30 2926 2926 300.104727272728 300.104727272728 1 52 52 52 2704
+226	12881805 30 2926 2926 300.104727272728 300.104727272728 1 36 36 36 1296
+227	12881835 30 2927 2927 300.104727272728 300.104727272728 1 16 16 16 256
+228	12881865 30 2927 2927 300.104727272728 300.104727272728 1 52 52 52 2704
+229	12881895 30 2927 2927 300.104727272728 300.104727272728 1 36 36 36 1296
+230	12881925 30 2928 2928 300.104727272728 300.104727272728 1 16 16 16 256
+231	12881955 30 2928 2928 300.104727272728 300.104727272728 1 52 52 52 2704
+232	12881985 30 2928 2928 300.104727272728 300.104727272728 1 36 36 36 1296
+233	12882015 30 2929 2929 300.104727272728 300.104727272728 1 16 16 16 256
+234	12882045 30 2929 2929 300.104727272728 300.104727272728 1 52 52 52 2704
+235	12882075 30 2929 2929 300.104727272728 300.104727272728 1 36 36 36 1296
+236	12882105 88 2930 2948 300.104727272728 300.116363636364 3 8 36 52 1424
+237	12882193 90 2930 2948 300.104727272728 300.116363636364 3 36 52 132 5936
+238	12882283 30 2930 2930 300.104727272728 300.104727272728 1 52 52 52 2704
+239	12882313 88 2931 2949 300.104727272728 300.116363636364 3 8 36 52 1424
+240	12882401 90 2931 2949 300.104727272728 300.116363636364 3 36 52 132 5936
+241	12882491 30 2931 2931 300.104727272728 300.104727272728 1 52 52 52 2704
+242	12882521 88 2932 2952 300.104727272728 300.116363636364 3 8 36 52 1424
+243	12882609 90 2932 2952 300.104727272728 300.116363636364 3 36 52 132 5936
+244	12882699 30 2932 2932 300.104727272728 300.104727272728 1 52 52 52 2704
+245	12882729 88 2933 2953 300.104727272728 300.116363636364 3 8 36 52 1424
+246	12882817 90 2933 2953 300.104727272728 300.116363636364 3 36 52 132 5936
+247	12882907 30 2933 2933 300.104727272728 300.104727272728 1 52 52 52 2704
+248	12882937 60 2946 2948 300.116363636364 300.116363636364 2 24 24 48 1152
+249	12882997 60 2947 2949 300.116363636364 300.116363636364 2 24 24 48 1152
+250	12883057 60 2950 2952 300.116363636364 300.116363636364 2 24 24 48 1152
+251	12883117 60 2951 2953 300.116363636364 300.116363636364 2 24 24 48 1152
+252	12883177 11690 2954 513122 300.116363636364 172800 576 0 0 0 0
+253	12894867 12266 2954 513122 300.116363636364 172800 576 24 24 13824 331776
+254	12907133 11690 2954 513122 300.116363636364 172800 576 8 8 4608 36864
+255	12918823 11690 2955 513123 300.116363636364 172800 576 0 0 0 0
+256	12930513 12266 2955 513123 300.116363636364 172800 576 24 24 13824 331776
+257	12942779 11690 2955 513123 300.116363636364 172800 576 8 8 4608 36864
+258	12954469 11690 2956 513124 300.116363636364 172800 576 0 0 0 0
+259	12966159 12266 2956 513124 300.116363636364 172800 576 24 24 13824 331776
+260	12978425 11690 2956 513124 300.116363636364 172800 576 8 8 4608 36864
+261	12990115 11690 2957 513125 300.116363636364 172800 576 0 0 0 0
+262	13001805 12266 2957 513125 300.116363636364 172800 576 24 24 13824 331776
+263	13014071 11690 2957 513125 300.116363636364 172800 576 8 8 4608 36864
+264	13025761 60 2962 2963 300.209454545455 300.209454545455 2 52 52 104 5408
+265	13025821 60 2964 2965 300.209454545455 300.209454545455 2 52 52 104 5408
+266	13025881 52194 3972 512899 412.190840067342 172717.426234893676 1530 16 16 24480 391680
+267	13078075 114374 3973 512900 412.190840067342 172717.426234893676 2459 0 0.021377672209026 15.982612895878 0.1608598501312
+268	13192449 110846 3973 512900 412.190840067342 172717.426234893676 2459 0.97862232779097 1 2443.0173871041 2427.1956340584
+269	13303295 42657 3973 498369 412.190840067342 166236.427709866237 1267 0 929 487986 279266746
+270	13345952 5366 3973 80152 412.190840067342 10230.8598711415 169 16 16 2704 43264
+271	13351318 5366 3974 80153 412.190840067342 10230.8598711415 169 48 48 8112 389376
+272	13356684 6997 4071 80262 412.208463747342 10230.8774948215 178 0 0.01762368 2.97840192 0.052490402349466
+273	13363681 6010 4071 80262 412.208463747342 10230.8774948215 178 1016 1016 180848 183741568
+274	13369691 6010 4071 80262 412.208463747342 10230.8774948215 178 1000 1000 178000 178000000
+275	13375701 901 4947 80262 412.349453187342 10230.8774948215 23 0 0.1762368 2.97840192 0.41961262469898
+276	13376602 180471 5166 513071 509.879271802492 172787.464684084486 5283 16 16 84528 1352448
+277	13557073 13974 5204 459103 509.879272954492 149119.626975287601 424 16 16 6784 108544
+278	13571047 14822 5204 459103 509.879272954492 149119.626975287601 424 1016 1016 430784 437676544
+279	13585869 14822 5204 459103 509.879272954492 149119.626975287601 424 1000 1000 424000 424000000
+280	13600691 14822 5205 459104 509.879272954492 149119.626975287601 424 1000 1000 424000 424000000
+281	13615513 15562 5205 459104 509.879272954492 149119.626975287601 424 1000 424000 90100000 25498300000000
+282	13631075 14822 5205 459104 509.879272954492 149119.626975287601 424 1016 1016 430784 437676544
+283	13645897 14822 5206 459105 509.879272954492 149119.626975287601 424 1048 1048 444352 465680896
+284	13660719 26986 5250 459146 509.879281338492 149119.626983671601 768 52 1016 778360 790713504
+285	13687705 26928 5250 459146 509.879281338492 149119.626983671601 766 1000 1000 766000 766000000
+286	13714633 28352 5250 459146 509.879281338492 149119.626983671601 766 1000 766000 293761000 1.50111871e+14
+287	13742985 26928 5250 459146 509.879281338492 149119.626983671601 766 1016 1016 778256 790708096
+288	13769913 27037 5254 459150 509.879289722492 149119.626992055601 770 52 1016 778464 790718912
+289	13796950 27037 5254 459150 509.879289722492 149119.626992055601 770 36 1000 766144 766005184
+290	13823987 29413 5254 459150 509.879289722492 149119.626992055601 794 1000 742144 312065732 1.630677766852e+14
+291	13853400 27037 5254 459150 509.879289722492 149119.626992055601 770 52 1016 778464 790718912
+292	13880437 14760 5258 459154 509.879298106492 149119.627000439601 422 1016 1016 428752 435612032
+293	13895197 26472 5258 459154 509.879298106492 149119.627000439601 752 1000 1000 752000 752000000
+294	13921669 27868 5258 459154 509.879298106492 149119.627000439601 752 1000 752000 283128000 1.4203588e+14
+295	13949537 176547 5259 513073 509.879298106492 172787.464684084486 5283 0 2.6304e-05 0.003971904 1.04476962816e-07
+296	14126084 191037 5259 513073 509.879298106492 172787.464684084486 5283 1016 1016 5367528 5453408448
+297	14317121 191037 5259 513073 509.879298106492 172787.464684084486 5283 1000 1000 5283000 5283000000
+298	14508158 30878 6563 498369 509.879660410492 166236.427709866237 929 16 16 14864 237824
+299	14539036 30878 6564 498370 509.879660410492 166236.427709866237 929 16 16 14864 237824
+300	14569914 12842 6665 513073 509.879692666492 172787.464684084486 384 0 0.00052608 0.003971904 1.58791145472e-06
+301	14582756 49156 8161 512989 604.871156997979 172761.866616640044 1434 16 16 22944 367104
+302	14631912 370 8162 19509 604.871156997979 1316.068174715129 12 16 16 192 3072
+303	14632282 370 8163 19510 604.871156997979 1316.068174715129 12 48 48 576 27648
+304	14632652 12164 8264 270532 604.880034053979 71707.328905205656 344 52 1016 347576 353036960
+305	14644816 12164 8264 270532 604.880034053979 71707.328905205656 344 36 1000 342072 342002592
+306	14656980 12746 8264 270532 604.880034053979 71707.328905205656 344 1000 342072 58762564 13404621527312
+307	14669726 12164 8264 270532 604.880034053979 71707.328905205656 344 52 1016 347576 353036960
+308	14681890 394 8268 19615 604.880117893979 1316.077135611129 12 1016 1016 12192 12387072
+309	14682284 394 8268 19615 604.880117893979 1316.077135611129 12 1000 1000 12000 12000000
+310	14682678 397 8268 19615 604.880117893979 1316.077135611129 12 1000 12000 78000 650000000
+311	14683075 478 8269 19616 604.880117893979 1316.077135611129 12 0.008960896 0.008960896 0.107530752 0.00096357188547379
+312	14683553 394 8269 19616 604.880117893979 1316.077135611129 12 1016 1016 12192 12387072
+313	14683947 394 8269 19616 604.880117893979 1316.077135611129 12 1000 1000 12000 12000000
+314	14684341 79 8941 19616 604.933883269979 1316.077135611129 2 0.04480448 0.062726272 0.107530752 0.0059420266270884
+315	14684420 49193 12584 513011 932.469503581524 172771.794907314613 1435 16 16 22960 367360
+316	14733613 599 12585 22794 932.469503581524 1967.965497471601 19 16 16 304 4864
+317	14734212 599 12586 22795 932.469503581524 1967.965497471601 19 48 48 912 43776
+318	14734811 637 12679 22900 932.478363101524 1967.974356991601 19 1016 1016 19304 19612864
+319	14735448 637 12679 22900 932.478363101524 1967.974356991601 19 1000 1000 19000 19000000
+320	14736085 647 12679 22900 932.478363101524 1967.974356991601 19 1000 19000 190000 2470000000
+321	14736732 637 12679 22900 932.478363101524 1967.974356991601 19 1016 1016 19304 19612864
+322	14737369 637 12683 22904 932.478446941524 1967.974440831601 19 1016 1016 19304 19612864
+323	14738006 637 12683 22904 932.478446941524 1967.974440831601 19 1000 1000 19000 19000000
+324	14738643 647 12683 22904 932.478446941524 1967.974440831601 19 1000 19000 190000 2470000000
+325	14739290 751 12684 22905 932.478446941524 1967.974440831601 19 0.00894336 0.00894336 0.16992384 0.0015196900737024
+326	14740041 637 12684 22905 932.478446941524 1967.974440831601 19 1016 1016 19304 19612864
+327	14740678 637 12684 22905 932.478446941524 1967.974440831601 19 1000 1000 19000 19000000
+328	14741315 78 13532 22905 932.549993821524 1967.974440831601 2 0.08049024 0.0894336 0.16992384 0.014477047544218
+329	14741393 48946 20461 513086 1673.478573074522 172793.478573074522 1427 16 16 22832 365312
+330	14790339 202890 20461 513086 1673.478573074522 172793.478573074522 5614 1 5614 15761305 58994564615
+331	14993229 48754 26347 512989 2361.866616640044 172761.866616640044 1421 16 16 22736 363776
+332	15041983 30892 28748 510040 3025.755165796727 171407.973301619461 903 16 16 14448 231168
+333	15072875 9126 28749 459063 3025.755165796727 149119.626970295601 271 16 16 4336 69376
+334	15082001 9126 28750 459064 3025.755165796727 149119.626970295601 271 48 48 13008 624384
+335	15091127 21380 28840 459154 3025.755195940727 149119.627000439601 601 1016 1016 610616 620385856
+336	15112507 9668 28844 459162 3025.755279780727 149119.627084279601 271 1016 1016 275336 279741376
+337	15122175 9668 28844 459162 3025.755279780727 149119.627084279601 271 1000 1000 271000 271000000
+338	15131843 10102 28844 459162 3025.755279780727 149119.627084279601 271 1000 271000 36856000 6670936000000
+339	15141945 32699 28845 510042 3025.755279780727 171407.973301619461 903 0 0.000113984 0.030889664 3.520927461376e-06
+340	15174644 32698 28845 510042 3025.755279780727 171407.973301619461 903 1016 1016 917448 932127168
+341	15207342 32698 28845 510042 3025.755279780727 171407.973301619461 903 1000 1000 903000 903000000
+342	15240040 2312 30569 510042 3025.757217508727 171407.973301619461 64 0 0.00227968 0.030889664 5.4840718872576e-05
+343	15242352 48562 30971 513011 3091.794907314613 172771.794907314613 1415 16 16 22640 362240
+344	15290914 66622 34285 508509 3448.155714897439 170719.3677732404 1951 16 16 31216 499456
+345	15357536 11052 34286 270441 3448.155714897439 71707.328796149656 330 16 16 5280 84480
+346	15368588 11052 34287 270442 3448.155714897439 71707.328796149656 330 48 48 15840 760320
+347	15379640 11052 34328 270483 3448.155723345439 71707.328804597656 330 16 16 5280 84480
+348	15390692 11712 34328 270483 3448.155723345439 71707.328804597656 330 1016 1016 335280 340644480
+349	15402404 11712 34328 270483 3448.155723345439 71707.328804597656 330 1000 1000 330000 330000000
+350	15414116 11712 34377 270539 3448.155907793439 71707.328989045656 330 1016 1016 335280 340644480
+351	15425828 11712 34377 270539 3448.155907793439 71707.328989045656 330 1000 1000 330000 330000000
+352	15437540 12264 34377 270539 3448.155907793439 71707.328989045656 330 1000 330000 54615000 12033505000000
+353	15449804 67971 34378 508511 3448.155907793439 170719.3677732404 1951 0 0.000192896 0.06365568 1.227892604928e-05
+354	15517775 70524 34378 508511 3448.155907793439 170719.3677732404 1951 1016 1016 1982216 2013931456
+355	15588299 70524 34378 508511 3448.155907793439 170719.3677732404 1951 1000 1000 1951000 1951000000
+356	15658823 2262 37429 508511 3448.161887569439 170719.3677732404 65 0 0.007522944 0.06365568 0.00037945602378957
+357	15661085 23291 39073 513103 3600 172800 956 16 16 15296 244736
+358	15684376 19 39081 39081 3600 3600 1 16 16 16 256
+359	15684395 19 39082 39082 3600 3600 1 16 16 16 256
+360	15684414 4881 39083 498263 3600 166236.427313578237 146 16 16 2336 37376
+361	15689295 51 39089 39367 3600 3600.104727272728 2 36 72 108 6480
+362	15689346 51 39090 39368 3600 3600.104727272728 2 36 72 108 6480
+363	15689397 4890 39091 498264 3600 166236.427313578237 146 48 48 7008 336384
+364	15694287 58 39241 49568 3600.000016128 5400.000016128 2 84 84 168 14112
+365	15694345 58 39242 42867 3600.000016128 4200.000012288 2 84 84 168 14112
+366	15694403 5225 39274 498346 3600.000024192 166236.427330026237 146 52 1016 144480 146591168
+367	15699628 5225 39274 498346 3600.000024192 166236.427330026237 146 36 1000 142144 142005184
+368	15704853 5407 39274 498346 3600.000024192 166236.427330026237 146 36 142144 10190196 967589839088
+369	15710260 5225 39274 498346 3600.000024192 166236.427330026237 146 52 1016 144480 146591168
+370	15715485 5225 39285 498357 3600.000030912 166236.427413866237 146 52 1016 144480 146591168
+371	15720710 5225 39285 498357 3600.000030912 166236.427413866237 146 36 1000 142144 142005184
+372	15725935 5407 39285 498357 3600.000030912 166236.427413866237 146 36 142144 10190196 967589839088
+373	15731342 5225 39285 498357 3600.000030912 166236.427413866237 146 52 1016 144480 146591168
+374	15736567 5225 39293 498361 3600.000037632 166236.427497706237 146 52 1016 144480 146591168
+375	15741792 5225 39293 498361 3600.000037632 166236.427497706237 146 36 1000 142144 142005184
+376	15747017 5407 39293 498361 3600.000037632 166236.427497706237 146 36 142144 10190196 967589839088
+377	15752424 24365 39294 513121 3600.000037632 172800 956 52 1016 538460 524567888
+378	15776789 24365 39294 513121 3600.000037632 172800 956 36 1000 523164 507581904
+379	15801154 185 39329 79268 3600.052363636364 10200.000008448 6 8 36 160 5312
+380	15801339 188 39329 79268 3600.052363636364 10200.000008448 6 8 160 448 51744
+381	15801527 123 39329 79268 3600.052363636364 10200.000008448 4 24 52 152 6560
+382	15801650 32 39363 39363 3600.104727272728 3600.104727272728 1 16 16 16 256
+383	15801682 32 39363 39363 3600.104727272728 3600.104727272728 1 52 52 52 2704
+384	15801714 32 39363 39363 3600.104727272728 3600.104727272728 1 36 36 36 1296
+385	15801746 32 39364 39364 3600.104727272728 3600.104727272728 1 16 16 16 256
+386	15801778 32 39364 39364 3600.104727272728 3600.104727272728 1 52 52 52 2704
+387	15801810 32 39364 39364 3600.104727272728 3600.104727272728 1 36 36 36 1296
+388	15801842 94 39365 39375 3600.104727272728 3600.116363636364 3 8 36 52 1424
+389	15801936 96 39365 39375 3600.104727272728 3600.116363636364 3 36 52 132 5936
+390	15802032 32 39365 39365 3600.104727272728 3600.104727272728 1 52 52 52 2704
+391	15802064 94 39366 39376 3600.104727272728 3600.116363636364 3 8 36 52 1424
+392	15802158 96 39366 39376 3600.104727272728 3600.116363636364 3 36 52 132 5936
+393	15802254 32 39366 39366 3600.104727272728 3600.104727272728 1 52 52 52 2704
+394	15802286 64 39373 39375 3600.116363636364 3600.116363636364 2 24 24 48 1152
+395	15802350 64 39374 39376 3600.116363636364 3600.116363636364 2 24 24 48 1152
+396	15802414 988 39377 513118 3600.116363636364 172800 48 0 0 0 0
+397	15803402 1036 39377 513118 3600.116363636364 172800 48 24 24 1152 27648
+398	15804438 988 39377 513118 3600.116363636364 172800 48 8 8 384 3072
+399	15805426 988 39378 513119 3600.116363636364 172800 48 0 0 0 0
+400	15806414 1036 39378 513119 3600.116363636364 172800 48 24 24 1152 27648
+401	15807450 988 39378 513119 3600.116363636364 172800 48 8 8 384 3072
+402	15808438 64 39381 39382 3600.209454545455 3600.209454545455 2 52 52 104 5408
+403	15808502 4766 59829 498284 7190.880659184096 166236.427321642237 140 16 16 2240 35840
+404	15813268 5046 59829 498284 7190.880659184096 166236.427321642237 140 1016 1016 142240 144515840
+405	15818314 5046 59829 498284 7190.880659184096 166236.427321642237 140 1000 1000 140000 140000000
+406	15823360 5046 59830 498285 7190.880659184096 166236.427321642237 140 1000 1000 140000 140000000
+407	15828406 5218 59830 498285 7190.880659184096 166236.427321642237 140 1000 140000 9870000 924490000000
+408	15833624 5046 59830 498285 7190.880659184096 166236.427321642237 140 1016 1016 142240 144515840
+409	15838670 5046 59831 498286 7190.880659184096 166236.427321642237 140 1048 1048 146720 153762560
+410	15843716 8849 59900 498362 7190.880835248096 166236.427497706237 224 0 0.000184128 0.02577792 4.74643685376e-06
+411	15852565 1179 60387 498362 7190.881755888096 166236.427497706237 30 0 0.00184128 0.02577792 3.7225626181632e-05
+412	15853744 59 60569 79269 7200.000008448 10200.000008448 2 84 84 168 14112
+413	15853803 46507 81328 512899 10717.426234893676 172717.426234893676 1351 16 16 21616 345856
+414	15900310 888 408478 459150 127977.454936312034 149119.626992055601 24 1000 1000 24000 24000000
+
